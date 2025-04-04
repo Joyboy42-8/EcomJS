@@ -1,3 +1,4 @@
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -5,3 +6,58 @@
     font-family: Verdana, sans-serif;
     font-size: 1.1rem;
 }
+
+/* Corps de la page*/
+body{
+    background-image: url('back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Barre de navigation */
+header {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid white;
+    position: sticky;
+    margin-top: 40px;
+    padding: 20px;
+}
+header > a {
+    display: block;
+    margin: auto;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+header > a:hover {
+    opacity: 0.6;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+header > button {
+    display: block;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #024b8f;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+header > button:hover {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #152466;
+    transition: 0.4s ease;
+}
+
+/**/
