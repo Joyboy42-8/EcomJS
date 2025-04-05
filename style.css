@@ -66,7 +66,7 @@ form {
     backdrop-filter: blur(10px);
     border: 1px solid #024b8f;
     border-radius: 10px;
-    width: 43vw;
+    width: 44vw;
     margin: auto;
     color: white;
     padding: 20px;
@@ -104,4 +104,14 @@ button[type=submit] {
     transition: 0.4s ease;
 }
 
-/**/
+/* Validation formulaire */
+.error {
+    display: block;
+    background-color: red;
+    color: white;
+    margin-bottom: 5px;
+    display: none;
+    font-size: 0.8rem;
+    padding: 10px;
+    border-radius: 15px;
+}

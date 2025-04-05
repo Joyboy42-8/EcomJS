@@ -8,28 +8,33 @@
 </head>
 <body>
     <header>
-        <a href="#">Acceuil</a>
+        <a href="index.html">Acceuil</a>
         <a href="#">Ajouter un Produit</a>
-        <button href="#" id="log">S'inscrire</button>
+        <button id="log">S'inscrire</button>
     </header>
 
-    <form class="form">
+    <form class="form" novalidate>
         <i class="fa-solid fa-xmark"></i>
 
         <label for="prenom">Prénom</label>
         <input type="text" id="prenom" placeholder="Ex: John" required>
+        <span class="error" id="prenomError"></span>
 
         <label for="nom">Nom</label>
         <input type="text" id="nom" placeholder="Ex: Doe" required>
+        <span class="error" id="nomError"></span>
         
         <label for="mail">Email</label>
         <input type="email" id="mail"  placeholder="Ex: johndoe@gmail.com" required>
+        <span class="error" id="mailError"></span>
 
         <label for="password">Mot de Passe</label>
         <input type="password" id="password"  placeholder="Ex: Johndoe99@" required>
+        <span class="error" id="passwordError"></span>
 
         <label for="confirm">Confirmer Mot de Passe</label>
         <input type="password" id="confirm" placeholder="Confirmer Mot de Passe" required>
+        <span class="error" id="confirmError"></span>
 
         <button type="submit">S'inscrire</button>
     </form>
