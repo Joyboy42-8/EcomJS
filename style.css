@@ -64,7 +64,7 @@ header > button:hover, button[type=submit]:hover {
 form {
     background-color: rgb(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid white;
+    border: 1px solid #024b8f;
     border-radius: 10px;
     width: 43vw;
     margin: auto;
@@ -92,3 +92,16 @@ button[type=submit] {
     color: white;
     background-color: #024b8f;
 }
+.fa-xmark {
+    position: absolute;
+    right: 30px;
+    padding: 4px;
+    border-radius: 5px;
+}
+.fa-xmark:hover {
+    border: 1px solid #024b8f;
+    opacity: 0.7;
+    transition: 0.4s ease;
+}
+
+/**/
