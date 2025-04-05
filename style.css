@@ -53,11 +53,42 @@ header > button {
     border: none;
     padding: 10px;
 }
-header > button:hover {
+header > button:hover, button[type=submit]:hover {
     background-color: transparent;
     color: white;
     border: 1px solid #152466;
     transition: 0.4s ease;
 }
 
-/**/
+/* Modal : Formulaire */
+form {
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 43vw;
+    margin: auto;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+}
+form > input {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 40vw;
+    height: 7vh;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+button[type=submit] {
+    display: block;
+    margin: auto;
+    width: 25vw;
+    height: 7vh;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #024b8f;
+}
