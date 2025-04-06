@@ -13,9 +13,9 @@ closeForm.addEventListener('click', () => {
 //-----------------------------------------------------------------------
 
 // Validation formulaire
-let prenom = '';
-let nom = '';
-let mail = '';
+let prenom = document.getElementById('prenom').value;
+let nom = document.getElementById('nom').value;
+let mail = document.getElementById('mail').value;
 
 formulaireInscription.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ formulaireInscription.addEventListener('submit', (e) => {
     // Récupération des balises
     prenom = document.getElementById('prenom').value.trim();
     nom = document.getElementById('nom').value.trim();
-    mail = document.getElementById('mail').value;
+    mail = document.getElementById('mail').value.trim();
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirm').value;
     let prenomOk = true;
@@ -122,6 +122,17 @@ formulaireInscription.addEventListener('submit', (e) => {
         }, 20);
     };
 
+    info.innerHTML += `
+    <div>
+        <p>Prénom: ${prenom}</p><br>
+        <p>Nom: ${nom}</p><br>
+        <p>Mail: ${mail}</p>
+    </div>
+    `;
+    welcome.innerHTML += `
+    <h1>Bienvenue ${prenom} ${nom}</h1>
+    `;
+
     // Réinitialiser le formulaire
     formulaireInscription.reset();
 });
@@ -131,15 +142,5 @@ formulaireInscription.addEventListener('submit', (e) => {
 const main = document.querySelector('main');
 const info = document.getElementById('userInfo');
 const welcome = document.getElementById('userWelcome');
-console.log(welcome);
 
-info.innerHTML += `
-<div>
-    <p>Prénom: ${prenom}</p><br>
-    <p>Nom: ${nom}</p><br>
-    <p>Mail: ${mail}</p>
-</div>
-`;
-welcome.innerHTML += `
-<h2>Bienvenue ${prenom} ${nom}</h2>
-`;
+//-----------------------------------------------------------------------
