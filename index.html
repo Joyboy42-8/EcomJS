@@ -36,14 +36,31 @@
         <input type="password" id="confirm" placeholder="Confirmer Mot de Passe" required>
         <span class="error" id="confirmError"></span>
 
+        <label for="photo">Photo D'identité</label>
+        <input type="file" id="photo" name="photo" required>
+
         <button type="submit">S'inscrire</button>
     </form>
 
-    <div class="content">
-        <div id="progress-bar-container"> <div id="progress-bar"></div> </div>
+    <div class="loading">
+        <div class="loading-container">
+            <div class="number">
+                <span id="loadCount">0</span><span>%</span>
+            </div>
+            <div id="bar">
+                <div id="progress"></div>
+            </div>
+        </div>
     </div>
 
-    <main></main>
+    <main>
+        <div id="userInfo">
+            <img id="photo-profil">    
+        <div>
+        <div id="userWelcome">
+            <img id="photo-welcome"><br>    
+        <div>            
+    </main> 
 
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/7880d5522c.js" crossorigin="anonymous"></script>

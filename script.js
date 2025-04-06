@@ -13,20 +13,24 @@ closeForm.addEventListener('click', () => {
 //-----------------------------------------------------------------------
 
 // Validation formulaire
+let prenom = '';
+let nom = '';
+let mail = '';
+
 formulaireInscription.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // Récupération des balises
-    let prenom = document.getElementById('prenom').value.trim();
-    let nom = document.getElementById('nom').value.trim();
-    let mail = document.getElementById('mail').value;
+    prenom = document.getElementById('prenom').value.trim();
+    nom = document.getElementById('nom').value.trim();
+    mail = document.getElementById('mail').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirm').value;
     let prenomOk = true;
     let nomOk = true; 
     let mailOk = true; 
     let passwordOk = true; 
-    confirmOk = true;
+    let confirmOk = true;
 
 
     // Cacher les erreurs au chargement de la page
@@ -75,38 +79,47 @@ formulaireInscription.addEventListener('submit', (e) => {
         erreur.style.display = 'block';
     }
 
+    //Photo
+    const formData = new FormData(formulaireInscription);
+    const photo = formData.get('photo');
+
+    if (photo && photo.type.startsWith("image/")) {
+        const imageUrl = URL.createObjectURL(photo);
+        const imgP = document.querySelector('#photo-profil');
+        const imgW = document.querySelector('#photo-welcome');
+        imgP.src = imageUrl;
+        imgW.src = imageUrl;
+        console.log(imageUrl);
+        console.log(imgP);
+        console.log(imgW);
+    } else {
+        alert("Veuillez Sélectionner une Photo !");
+    }
+
     // Formulaire Validé
     // Barre de progression
     if(prenomOk && nomOk && mailOk && passwordOk && confirmOk) {
-        const barContainer = document.querySelector('.content');
-        barContainer.style.display = "block";
+        const loadingDiv = document.querySelector('.loading');
+        loadingDiv.style.display = 'block';
+        let count = 0; 
 
-        let i = 0;
-        function move() {
-            if(i == 0) {
-                i = 1;
-                let elem = document.getElementById('progress-bar');
-                let width = 1;
-                let id = setInterval(frame, 10);
+        const interval = setInterval(() => {
+            if(count < 100) {
+                count += 1;
+                loadCount.innerHTML = count;
+                progress.style.width = count + '%';
 
-                function frame() {
-                    if (width >= 100) {
-                        clearInterval(id);
-                        i = 0;
-                    } else {
-                        width++;
-                        elem.style.width = width + "%";
-                    }
-                }
+                setTimeout(() => {
+                    loadingDiv.style.opacity = 0;
+                    formulaireInscription.style.display = 'none';
+                    document.querySelector('header').style.display = 'none';
+                    document.querySelector('main').style.display = 'block';
+                }, 1000);
+            } else {
+                loadingDiv.style.display = 'block';
+                clearInterval(interval);
             }
-        }
-        move();
-
-        setTimeout(() => {
-            formulaireInscription.style.display = 'none';
-            document.querySelector('main').style.display = 'block';
-            barContainer.style.display = 'none';
-        }, 3000);
+        }, 20);
     };
 
     // Réinitialiser le formulaire
@@ -115,3 +128,18 @@ formulaireInscription.addEventListener('submit', (e) => {
 
 //-----------------------------------------------------------------------
 //Après Inscription
+const main = document.querySelector('main');
+const info = document.getElementById('userInfo');
+const welcome = document.getElementById('userWelcome');
+console.log(welcome);
+
+info.innerHTML += `
+<div>
+    <p>Prénom: ${prenom}</p><br>
+    <p>Nom: ${nom}</p><br>
+    <p>Mail: ${mail}</p>
+</div>
+`;
+welcome.innerHTML += `
+<h2>Bienvenue ${prenom} ${nom}</h2>
+`;
