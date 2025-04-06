@@ -75,13 +75,43 @@ formulaireInscription.addEventListener('submit', (e) => {
         erreur.style.display = 'block';
     }
 
-    // Formulaire correct
+    // Formulaire Validé
+    // Barre de progression
     if(prenomOk && nomOk && mailOk && passwordOk && confirmOk) {
-        alert("Formulaire Valide !");
-    }
+        const barContainer = document.querySelector('.content');
+        barContainer.style.display = "block";
+
+        let i = 0;
+        function move() {
+            if(i == 0) {
+                i = 1;
+                let elem = document.getElementById('progress-bar');
+                let width = 1;
+                let id = setInterval(frame, 10);
+
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }
+        }
+        move();
+
+        setTimeout(() => {
+            formulaireInscription.style.display = 'none';
+            document.querySelector('main').style.display = 'block';
+            barContainer.style.display = 'none';
+        }, 3000);
+    };
 
     // Réinitialiser le formulaire
     formulaireInscription.reset();
 });
 
 //-----------------------------------------------------------------------
+//Après Inscription
