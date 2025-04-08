@@ -61,8 +61,24 @@
         <div id="userWelcome">
             <img id="photo-welcome"><br>    
         </div>     
-        
-        <button class="add">Ajouter un Produit</button>
+
+        <form id="addForm" novalidate>
+            <h2>Ajouter un Produit</h2>
+            <i class="fa-solid fa-xmark fa-xmark2"></i>
+
+            <label for="name">Nom du Produit</label>
+            <input type="text" id="name" placeholder="Ex: Chaussures Nike" required>
+            <span class="error" id="nameError"></span>
+
+            <label for="quantity">Quantité en Stock</label>
+            <input type="number" id="quantity" placeholder="Ex: 10" required>
+            <span class="error" id="quantityError"></span>
+
+            <label for="libelle">Description du Produit <small>Optionnel</small></label>
+            <textarea id="libelle" cols="30" rows="10"></textarea>
+
+            <button type="submit">Créer le produit</button>
+        </form>
     </main> 
 
     <script src="script.js"></script>

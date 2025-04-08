@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 // Modal
 const inscription = document.getElementById('log');
 const formulaireInscription = document.querySelector('.form');
@@ -43,13 +44,13 @@ formulaireInscription.addEventListener('submit', (e) => {
     if (!prenom) {
         prenomOk = false;
         let erreur = document.getElementById('prenomError');
-        erreur.innerText = "Ce champ ne doit pas etre vide !";
+        erreur.innerText = "Ce champs est requis !";
         erreur.style.display = 'block';
     }
     if (!nom) {
         nomOk = false;
         let erreur = document.getElementById('nomError');
-        erreur.innerText = "Ce champ ne doit pas etre vide !";
+        erreur.innerText = "Ce champs est requis !";
         erreur.style.display = 'block';
     }
 
@@ -89,9 +90,6 @@ formulaireInscription.addEventListener('submit', (e) => {
         const imgW = document.querySelector('#photo-welcome');
         imgP.src = imageUrl;
         imgW.src = imageUrl;
-        console.log(imageUrl);
-        console.log(imgP);
-        console.log(imgW);
     } else {
         alert("Veuillez Sélectionner une Photo !");
     }
@@ -144,3 +142,33 @@ const info = document.getElementById('userInfo');
 const welcome = document.getElementById('userWelcome');
 
 //-----------------------------------------------------------------------
+// Bouton d'affichage du formulaire
+const productForm = document.getElementById('addForm');
+
+//Formulaire Produit
+productForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const quantity = document.getElementById('quantity').value.trim();
+    const libelle = document.getElementById('libelle').value.trim();
+
+    // Name Error
+    if(!name) {
+        let errorName = document.getElementById('nameError');
+        errorName.innerText = "Ce champs est requis !";
+        errorName.style.display = 'block';
+    }
+    // Quantity Error
+    if(!quantity) {
+        let errorQuantity = document.getElementById('quantityError');
+        errorQuantity.innerText = "Ce champs est requis !";
+        errorQuantity.style.display = 'block';
+    } else if (isNaN(quantity) || quantity <= 0) {
+        let errorQuantity = document.getElementById('quantityError');
+        errorQuantity.innerText = "La quantité doit être un nombre positif !";
+        errorQuantity.style.display = 'block';
+    }
+    
+    console.log(`Produit créé: ${name}, Quantité: ${quantity}, Description: ${libelle}`);       
+});
+});
