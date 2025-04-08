@@ -8,7 +8,7 @@
 ---
 
 ## 🧭 PHASE 2 – Menu de navigation
-- [ ] Ajouter un `header` avec les liens :
+- [ ] Ajouter un `header` avec les liens : 
   - [ ] Accueil
   - [ ] Ajouter un produit
   - [ ] S’inscrire (bouton qui ouvre une modale)

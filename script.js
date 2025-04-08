@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
 // Modal
 const inscription = document.getElementById('log');
 const formulaireInscription = document.querySelector('.form');
@@ -9,7 +8,7 @@ inscription.addEventListener('click', () => {
 });
 closeForm.addEventListener('click', () => {
     formulaireInscription.style.display = 'none';
-});
+}); 
 
 //-----------------------------------------------------------------------
 
@@ -130,7 +129,7 @@ formulaireInscription.addEventListener('submit', (e) => {
     welcome.innerHTML += `
     <h1>Bienvenue ${prenom} ${nom}</h1>
     `;
-
+    
     // Réinitialiser le formulaire
     formulaireInscription.reset();
 });
@@ -140,11 +139,10 @@ formulaireInscription.addEventListener('submit', (e) => {
 const main = document.querySelector('main');
 const info = document.getElementById('userInfo');
 const welcome = document.getElementById('userWelcome');
+const productForm = document.getElementById('addForm');
+productForm.style.display = "block";
 
 //-----------------------------------------------------------------------
-// Bouton d'affichage du formulaire
-const productForm = document.getElementById('addForm');
-
 //Formulaire Produit
 productForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -169,6 +167,8 @@ productForm.addEventListener('submit', (e) => {
         errorQuantity.style.display = 'block';
     }
     
-    console.log(`Produit créé: ${name}, Quantité: ${quantity}, Description: ${libelle}`);       
-});
+    console.log(`Produit créé: ${name}, Quantité: ${quantity}, Description: ${libelle}`); 
+
+    // Réinitialiser le formulaire
+    formulaireInscription.reset();      
 });

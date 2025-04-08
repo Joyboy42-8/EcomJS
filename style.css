@@ -8,7 +8,7 @@
 }
 
 /* Corps de la page*/
-body{
+body{ 
     background-image: url('back.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,7 +85,7 @@ form > input {
 button[type=submit] {
     display: block;
     margin: auto;
-    width: 25vw;
+    width: 40vw;
     height: 7vh;
     border-radius: 10px;
     border: none;
@@ -208,9 +208,9 @@ main {display: none;}
     display: none;
     background-color: rgb(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid #024b8f;
+    border: 1px solid white;
     border-radius: 10px;
-    width: 45vw;
+    width: 80vw;
     margin: auto;
     color: white;
     padding: 20px;
@@ -219,8 +219,17 @@ main {display: none;}
 #addForm > input {
     display: block;
     margin: 10px 0 10px 0;
-    width: 40vw;
+    width: 100%;
     height: 7vh;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+textarea {
+    display: block;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    height: 15vh;
     border-radius: 10px;
     border: 1px solid black;
     padding: 10px;
